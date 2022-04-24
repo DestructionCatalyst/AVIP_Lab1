@@ -1,0 +1,1 @@
+(lambda func: lambda *args: func(func, *args))(lambda self, t, length, depth: () if depth == 0 else ())(__import__('turtle').Turtle(), 100, 2)
