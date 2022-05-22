@@ -47,7 +47,7 @@ images = {
     'Рукописный текст': 'written_text_small.bmp',
     'Печатный текст': 'printed_text_small.bmp',
     'Старая книга': 'old_book.webp',
-    'Старославянский текст': 'slavic_text.png'
+    'Старославянский текст': 'slavic_text.png',
 }
 
 operation_classes = {

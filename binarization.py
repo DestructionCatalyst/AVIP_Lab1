@@ -35,7 +35,7 @@ def sum_in_frame(integral_img: np.array, x: int, y: int, frame_size: int):
                          limit(y - frame_size // 2, 0, integral_img.shape[1] - 1)])
 
 
-def niblack_binarization(img: np.array, frame_size: int = 15, k: float = -0.2) -> np.array:
+def niblack_binarization(img: np.array, frame_size: int = 15, k: float = 0.2) -> np.array:
     if len(img.shape) == 3 and img.shape[2] == 3:
         img = to_semi_tone(img)
     integral_img, integral_square_img = integral_images(img)

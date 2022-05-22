@@ -13,7 +13,7 @@ images = {
     'Рукописный текст (много деталей)': 'written_text_binarized_positive_k.bmp',
     'Цифровой рисунок': 'digital_drawing_binarized.bmp',
     'Старославянский текст': 'slavic_text_binarized.bmp',
-    'Фото цветов': 'flowers_binarized.bmp',
+    'Фото цветов': 'flowers_binarized_negative.png',
     'Городской пейзаж': 'railway_station_binarized.bmp',
 }
 
@@ -24,6 +24,7 @@ images1 = {
     'Рукописный текст (много деталей)': 'written_text_opened_high_details.bmp',
     'Фото цветов': 'flowers_opened.bmp',
     'Городской пейзаж': 'railway_station_opened.bmp',
+
 }
 
 operation_classes = {

@@ -10,7 +10,7 @@ def haraliks_matrix(img_arr: np.array, d=1):
             matrix[img_arr[x+d, y+d], img_arr[x, y]] += 1
             matrix[img_arr[x+d, y-d], img_arr[x, y]] += 1
             matrix[img_arr[x-d, y+d], img_arr[x, y]] += 1
-
+    matrix = matrix * 256 / np.max(matrix)
     return matrix
 
 
