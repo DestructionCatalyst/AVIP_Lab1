@@ -15,11 +15,11 @@ def spectrogram_plot(samples, sample_rate):
     plt.xlabel('Время [с]')
 
 
-# Lowpass filter
 def denoise(samples, sample_rate, cutoff_freuency, passes=1):
     z = signal.savgol_filter(samples, 101, 2)
     # Get parameters for filter function
     b, a = signal.butter(3, cutoff_freuency / sample_rate)
+    # Lowpass filter
     zi = signal.lfilter_zi(b, a)
     for i in range(passes):
         z, _ = signal.lfilter(b, a, z, zi=zi * z[0])
@@ -39,11 +39,18 @@ if __name__ == '__main__':
     # waveform_plot(samples)
     spectrogram_plot(samples, sample_rate)
     plt.savefig('out/spectrogram.png', dpi=dpi)
+    plt.clf()
+    denoised_0 = denoise(samples, sample_rate, cutoff_freuency=2000, passes=0)
+    spectrogram_plot(denoised_0, sample_rate)
+    plt.savefig('out/denoised_spectrogram_0.png', dpi=dpi)
+    plt.clf()
     denoised = denoise(samples, sample_rate, cutoff_freuency=2000)
     spectrogram_plot(denoised, sample_rate)
     plt.savefig('out/denoised_spectrogram_1.png', dpi=dpi)
+    plt.clf()
     wavfile.write('out/denoised1.wav', sample_rate, to_pcm(denoised))
     denoised_2 = denoise(samples, sample_rate, cutoff_freuency=2000, passes=2)
     spectrogram_plot(denoised_2, sample_rate)
     plt.savefig('out/denoised_spectrogram_2.png', dpi=dpi)
+    plt.clf()
     wavfile.write('out/denoised2.wav', sample_rate, to_pcm(denoised))

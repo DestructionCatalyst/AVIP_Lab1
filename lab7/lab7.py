@@ -33,7 +33,10 @@ if __name__ == '__main__':
 
     figure, axis = plt.subplots(2, 1)
     axis[0].hist(x=semitone.flatten(), bins=np.arange(0, 255))
+    axis[0].title.set_text('Исходное изображение')
     axis[1].hist(x=transformed.flatten(), bins=np.arange(0, 255))
+    axis[1].title.set_text('Преобразованное изображение')
+    plt.tight_layout()
     plt.savefig(path.join('img', 'out', 'histograms', selected_image))
     # plt.show()
 
